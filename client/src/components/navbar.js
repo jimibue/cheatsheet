@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {DataContext} from '../providers/dataProvider'
 import axios from "axios";
 import { nav } from "../data/nav";
 
@@ -13,9 +14,12 @@ import { nav } from "../data/nav";
 //   }
 // ];
 
-function Navbar({getCheatSheets}) {
+function Navbar() {
   const [activeCoreTopic, setActiveCoreTopic] = useState(nav[0]);
   const [activeSubTopic, setActiveSubTopic] = useState(nav[0].subTopics[0]);
+
+  const { getCheatSheets } = useContext(DataContext)
+  //  const  getCheatSheets = () => {}
   const { navContainer, active, item } = styles;
 
   const coreTopicClicked = id => {
