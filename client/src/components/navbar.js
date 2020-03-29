@@ -1,33 +1,31 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {DataContext} from '../providers/dataProvider'
 import axios from "axios";
-import { nav } from "../data/nav";
-
-// export const nav = [
-//   {
-//     title: "javascript",
-//     subTopics: [{ title: "es6" }, { title: "es7" }, { title: "spread" }]
-//   },
-//   {
-//     title: "ruby",
-//     subTopics: [{ title: "loops" }, { title: "classes" }, { title: "hash" }]
-//   }
-// ];
 
 function Navbar() {
-  const [activeCoreTopic, setActiveCoreTopic] = useState(nav[0]);
-  const [activeSubTopic, setActiveSubTopic] = useState(nav[0].subTopics[0]);
-
+  console.log('navbar mounted')
   const { getCheatSheets } = useContext(DataContext)
+  const [ nav, setNav] = useState()
+  const [activeCoreTopic, setActiveCoreTopic] = useState({});
+  const [activeSubTopic, setActiveSubTopic] = useState({});
   //  const  getCheatSheets = () => {}
   const { navContainer, active, item } = styles;
+  const fetchNav = async () => {
+    console.log('async called mounted')
+    const response = await axios.get(`/api/getNavItems`);
+    setActiveCoreTopic(response.data[0]);
+    setActiveSubTopic(response.data[0].subTopics[0]);
+    setNav(response.data);
+
+  };
+  useEffect(() => {fetchNav()},[ ])
 
   const coreTopicClicked = id => {
     if (id === activeCoreTopic.id) return;
     const selectedCoreTopic = nav.find(coreTopic => coreTopic.id === id);
     setActiveCoreTopic(selectedCoreTopic);
     setActiveSubTopic(selectedCoreTopic.subTopics[0]);
-    getCheatSheets()
+    getCheatSheets(selectedCoreTopic.subTopics[0])
   };
 
   const subTopicClicked = id => {
@@ -36,9 +34,11 @@ function Navbar() {
       subTopic => subTopic.id === id
     );
     setActiveSubTopic(selectedSubTopic);
-    getCheatSheets()
+    getCheatSheets(selectedSubTopic)
   };
-  return (
+  
+    { 
+      return  !nav  ? (<p>loading nav</p>) : (
     <>
       <div style={navContainer}>
         {nav.map(coreTopic => (
@@ -69,7 +69,8 @@ function Navbar() {
         ))}
       </div>
     </>
-  );
+    )}
+  
 }
 
 const styles = {
