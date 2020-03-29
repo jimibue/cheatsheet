@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/navbar";
+import CheatSheetContainer from "./components/CheatSheetContainer";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -14,11 +15,10 @@ function App() {
 
   return (
     <>
-      <Navbar />
+   
       <div className="App">
-        {items.map(i => (
-          <p key={`item-${i.id}`}>{i.name}</p>
-        ))}
+      <Navbar />
+      <CheatSheetContainer />
       </div>
     </>
   );

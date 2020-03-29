@@ -27,7 +27,7 @@ export class DataProvider extends React.Component {
     axios.get(`/api/sub_topics/${selectSubTopic.id}`).then(res => {
       console.log(res.data)
       this.setState({
-        currentCheatSheets: res.data
+        currentCheatSheets: res.data.cheatSheets
       });
     });
   };

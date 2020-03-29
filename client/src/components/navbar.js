@@ -77,7 +77,7 @@ const styles = {
   navContainer: {
     display: "flex",
     background: "grey",
-    margin: "10px 40px"
+    marginBottom: "10px"
   },
   item: {
     marginRight: "10px"
