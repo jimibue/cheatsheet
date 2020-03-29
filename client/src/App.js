@@ -9,9 +9,12 @@ function App() {
     axios.get('/api/items').then((res)=>{setItems(res.data)})
   },[])
   return (
+    <>
+    <h1>my app</h1>
     <div className="App">
       {items.map(i => <p key={`item-${i.id}`}>{i.name}</p>)}
     </div>
+    </>
   );
 }
 
