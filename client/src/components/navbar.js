@@ -3,7 +3,7 @@ import {DataContext} from '../providers/dataProvider'
 import axios from "axios";
 
 function Navbar() {
-  console.log('navbar mounted')
+  // console.log('navbar mounted')
   const { getCheatSheets } = useContext(DataContext)
   const [ nav, setNav] = useState()
   const [activeCoreTopic, setActiveCoreTopic] = useState({});
@@ -11,7 +11,7 @@ function Navbar() {
   //  const  getCheatSheets = () => {}
   const { navContainer, active, item } = styles;
   const fetchNav = async () => {
-    console.log('async called mounted')
+    // console.log('async called mounted')
     const response = await axios.get(`/api/getNavItems`);
     setActiveCoreTopic(response.data[0]);
     setActiveSubTopic(response.data[0].subTopics[0]);

@@ -8,25 +8,28 @@ export const DataConsumer = DataContext.Consumer;
 export class DataProvider extends React.Component {
   state = {
     currentCheatSheets: [],
-    nav: [],
-    
+    nav: []
   };
-  componentDidMount(){
-    axios.get('/api/core_topics').then((res)=>{
-      console.log(res.data)
-      const {nav, defaultCheatSheets } = res.data
+  componentDidMount() {
+    axios.get("/api/core_topics").then(res => {
+      console.log(res.data);
+      const { nav, defaultCheatSheets } = res.data;
       this.setState({
         currentCheatSheets: defaultCheatSheets,
-        nav,
-      })
-    })
+        nav
+      });
+    });
     // get navbar items from database
 
     // get default cheatsheet
   }
-  getCheatSheets = (selectSubTopic) => {
-    console.log(selectSubTopic);
-    console.log(selectSubTopic.id);
+  getCheatSheets = selectSubTopic => {
+    axios.get(`/api/sub_topics/${selectSubTopic.id}`).then(res => {
+      console.log(res.data)
+      this.setState({
+        currentCheatSheets: res.data
+      });
+    });
   };
   render() {
     return (

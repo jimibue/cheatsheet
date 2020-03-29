@@ -51,9 +51,28 @@ RUBY = CoreTopic.create(title: "Ruby", language: "Ruby", description: "about Rub
 JS_ST1 = JS.sub_topics.create(title: "ES6", description: "new features 2016 yo")
 JS_ST2 = JS.sub_topics.create(title: "LOOPS", description: "spin me right around")
 
+R_ST1 = RUBY.sub_topics.create(title: "Ruby 1", description: "new features 2016 yo")
+R_ST2 = RUBY.sub_topics.create(title: "Ruby 2", description: "spin me right around")
+
 CS1 = JS_ST1.cheat_sheets.create(title: "destructing", description: "about destructing")
 CS2 = JS_ST1.cheat_sheets.create(title: "arrow function", description: "about arrows")
 
+CS3 = R_ST1.cheat_sheets.create(title: "destructing in ruby", description: "about destructing")
+CS4 = R_ST1.cheat_sheets.create(title: "arrow function in ruby", description: "about arrows")
+
 CS1.examples.create(code_snippet: "<p>yoyo</p>", title: "yoyo", description: "about ex")
+
+CS1.examples.create(code_snippet: "<p>yoyoa</p>", title: "yoyoa", description: "about ex")
+
+CS2.examples.create(code_snippet: "<p>yoyo</p>", title: "yoyo", description: "about ex")
+
+CS2.examples.create(code_snippet: "<p>yoyoa</p>", title: "yoyoa", description: "about ex")
+
+CS3.examples.create(code_snippet: "<p>yoyo</p>", title: "yoyo", description: "about ex")
+
+CS3.examples.create(code_snippet: "<p>yoyo ruby</p>", title: "ruby 1yoyoa", description: "about ex")
+CS4.examples.create(code_snippet: "<p>yoyo</p>", title: "ruby 2yoyo", description: "about ex")
+
+CS4.examples.create(code_snippet: "<p>yoyoa</p>", title: "yoyoa", description: "about ex")
 
 puts "db seeded"

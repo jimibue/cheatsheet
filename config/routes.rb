@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index]
     get "getNavItems", to: "core_topics#get_nav_items"
     resources :core_topics, only: [:index]
+    resources :sub_topics, only: [:show]
     resources :examples, only: [:index]
   end
   get "*other", to: "static#index"
