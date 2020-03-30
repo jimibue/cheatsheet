@@ -9,6 +9,7 @@ export class DataProvider extends React.Component {
   state = {
     currentCheatSheets: [],
     nav: []
+    
   };
   componentDidMount() {
     axios.get("/api/core_topics").then(res => {

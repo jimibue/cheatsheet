@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import {DataContext} from '../providers/dataProvider'
 import axios from "axios";
+import { lightGrey } from "../styles/common";
 
 function Navbar() {
   // console.log('navbar mounted')
@@ -76,14 +77,20 @@ function Navbar() {
 const styles = {
   navContainer: {
     display: "flex",
-    background: "grey",
-    marginBottom: "10px"
+    background: lightGrey,
+    margin:0,
+    marginBottom: "5px",
+    padding:'5px 20px'
   },
-  item: {
-    marginRight: "10px"
+  item: {  
+    margin:0,
+    marginRight: "10px",
+    padding:'2px 10px',
+    borderRadius:'2px'
   },
   active: {
-    border: "1px solid #9F6A6A"
+    background: "#9F6A6A",
+    color:'white'
   }
 };
 

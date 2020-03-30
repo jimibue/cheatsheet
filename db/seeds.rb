@@ -60,11 +60,34 @@ CS2 = JS_ST1.cheat_sheets.create(title: "arrow function", description: "about ar
 CS3 = R_ST1.cheat_sheets.create(title: "destructing in ruby", description: "about destructing")
 CS4 = R_ST1.cheat_sheets.create(title: "arrow function in ruby", description: "about arrows")
 
-CS1.examples.create(code_snippet: "<p>yoyo</p>", title: "yoyo", description: "about ex")
+CS1.examples.create(code_snippet: "
+<div>
+  <p>this is destructoring</p>
+</div>
+",
+                    title: "yoyo", description: "about ex")
 
-CS1.examples.create(code_snippet: "<p>yoyoa</p>", title: "yoyoa", description: "about ex")
+CS1.examples.create(
+  title: "Arrow with implicit return",
+  description: "if using () no return is neeeded",
+  code_snippet: "
+const addOne = (x) => (
+  x + 1
+)
+console.log(addOne(1)) // => 2
+",
+)
 
-CS2.examples.create(code_snippet: "<p>yoyo</p>", title: "yoyo", description: "about ex")
+CS1.examples.create(
+  title: "Arrow with implicit return",
+  description: "if using {} return is needed",
+  code_snippet: "
+const addOne = (x) => {
+  return x + 1
+}
+console.log(addOne(1)) // => 2
+",
+)
 
 CS2.examples.create(code_snippet: "<p>yoyoa</p>", title: "yoyoa", description: "about ex")
 

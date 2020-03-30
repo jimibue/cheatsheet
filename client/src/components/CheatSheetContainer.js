@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { DataContext } from "../providers/dataProvider";
 import CheatSheet from "./CheatSheet";
+import { primaryLight } from "../styles/common";
 
 const CheatSheetContainer = () => {
   const { currentCheatSheets } = useContext(DataContext);
@@ -24,11 +25,16 @@ const CheatSheetContainer = () => {
 const styles = {
   container: {
     display: "flex",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    marginLeft:'20px',
+  
   },
   exContainer: {
     display: "flex",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    // background: primaryLight,
+    // background: 'red',
+    // margin:'10px'
   },
   item:{
     marginRight:'10px', fontSize:'8px'
